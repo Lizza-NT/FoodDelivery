@@ -1,0 +1,19 @@
+﻿a {
+    text-decoration: none;
+    color: darkorange;
+}
+
+td {
+    border-left-width: thick;
+    border-left-color: transparent;
+}
+
+td:hover {
+    border-left-width: thick;
+    border-left-color: yellow;
+}
+
+td:hover a {
+    color: white;
+    font-weight: 500;
+}

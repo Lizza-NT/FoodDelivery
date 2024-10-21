@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Cửa Hàng";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Danh Sách Cửa Hàng</h2>
+
+<a class="btn btn-secondary text-end" href="@Url.Action("CreateCH", "Admin")"><i class="bi bi-plus"></i> Thêm</a>
+
+<table class="table table-dark table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 20%; color: darkorange">Tên Cửa Hàng</th>
+            <th class="text-center" style="width: 20%; color: darkorange">Địa Chỉ</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Quận</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Thành Phố</th>
+            <th class="text-center" style="width: 7%; color: darkorange">Giờ Mở</th>
+            <th class="text-center" style="width: 8%; color: darkorange">Giờ Đóng</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Hotline</th>
+            <th style="width: 15%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cuaHang in Model)
+        {
+            <tr>
+                <td>@cuaHang.TenCH</td>
+                <td>@cuaHang.DiaChi</td>
+                <td>@cuaHang.Quan</td>
+                <td>@cuaHang.ThanhPho</td>
+                <td>@cuaHang.GioMo</td>
+                <td>@cuaHang.GioDong</td>
+                <td>@cuaHang.HotLine</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditCH", "Admin", new { id = cuaHang.TenCH })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteCH", "Admin", new { id = cuaHang.TenCH })" onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này không?');">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

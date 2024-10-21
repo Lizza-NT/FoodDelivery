@@ -1,0 +1,47 @@
+﻿@model List<BC3.Classes.UuDai>
+
+@{
+    ViewBag.Title = "UuDaiPartial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .backup {
+        background-image: url("../Image/back/buu.jpg");
+        width: 100%;
+        height: 20%;
+        opacity: 0.8;
+    }
+</style>
+
+<div class="backup d-block mx-auto">
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="text-uppercase text-center text-black text-bg-warning p-2" style="font-weight:900; font-size:60px">Ưu đãi</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<div class="row mt-4">
+    @foreach (var item in Model)
+    {
+    <div class="col-4 mt-3 ">
+        <div class="card bg-black text-center h-100">
+            <div class="card-img-top">
+                <img class="img-fluid rounded-3" src="~/Image/uudai/@item.Hinh_UD" />
+            </div>
+            <div class="card-body">
+                <div class="card-text text-white">
+                    <h5>COMBO @item.TenUD</h5>
+                    <p>@item.TomTat_UD</p>
+                </div>
+                <a href="@Url.Action("DetailUD", "UuDai", new { id = item.MaUD })" class="btn btn-outline-warning px-5 mt-2">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+    }
+</div>

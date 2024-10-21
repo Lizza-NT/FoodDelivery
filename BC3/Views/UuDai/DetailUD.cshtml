@@ -1,0 +1,38 @@
+﻿@model Tuple<BC3.Classes.UuDai, List<BC3.Classes.UuDai>>
+
+@{
+    ViewBag.Title = "DetailUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string ngayS = String.Format("{0:dd/MM/yyyy}", Model.Item1.DayStart);
+    string ngayE = String.Format("{0:dd/MM/yyyy}", Model.Item1.DayEnd);
+}
+
+<div class="row">
+    <div class="col-8">
+        <h1 class="text-uppercase" style="color:firebrick; font-weight:900">Ưu đãi @Model.Item1.TenUD</h1>
+        <div class="row mb-3">
+            <div class="col-6">
+                <span class="bg-warning rounded-3 px-2 py-2 text-black"><i class="bi bi-calendar-event"></i> Thời gian diễn ra: @ngayS - @ngayE</span>
+            </div>
+            <div class="col-3"></div>
+            <div class="col-3 float-end">
+                @if (Model.Item1.TrangThai_UD == 1)
+                {
+                    <span class="bg-primary rounded-3 text-end px-3 py-2">Ưu đãi</span>
+                }
+                else
+                {
+                    <span class="bg-danger rounded-3 text-end px-3 py-2">Hết ưu đãi</span>
+                }
+            </div>
+        </div>
+        <p>
+            @Model.Item1.TomTat_UD <br />
+            @Model.Item1.NoiDung_UD
+        </p>
+        <img class="img-fluid w-50 rounded-3 mx-auto d-block" src="~/Image/uudai/@Model.Item1.Hinh_UD" />
+    </div>
+    <div class="col-4 bg-dark bg-opacity-75 rounded-3">
+        @Html.Partial("UDLQ", Model.Item2) <!-- Gọi partial view để hiển thị các ưu đãi còn lại -->
+    </div>
+</div>

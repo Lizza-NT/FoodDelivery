@@ -1,0 +1,214 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\No_SQL\\BC3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|e:\\no_sql\\bc3\\bc3\\services\\neo4jservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\neo4jservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\comboservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\comboservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\tintucservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\tintucservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\nhomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\nhomservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\donhangservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\donhangservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\nguoidungservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\nguoidungservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\services\\cuahangservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\services\\cuahangservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\controllers\\staffcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\views\\shared\\_staff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\views\\shared\\_staff.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\views\\admin\\tintuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\views\\admin\\tintuc.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\views\\admin\\uudai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\views\\admin\\uudai.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|E:\\No_SQL\\BC3\\bc3\\views\\admin\\editcb.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{4649731A-BF9C-44B8-83DD-59F28FFBBBC2}|BC3\\Nhom02_DeliveryFood.csproj|solutionrelative:bc3\\views\\admin\\editcb.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 69,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Neo4jService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\Neo4jService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\Neo4jService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\Neo4jService.cs",
+              "RelativeToolTip": "BC3\\Services\\Neo4jService.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAABNAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:15:54.251Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DonHangService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\DonHangService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\DonHangService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\DonHangService.cs",
+              "RelativeToolTip": "BC3\\Services\\DonHangService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAB6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:26:32.563Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "NguoiDungService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\NguoiDungService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\NguoiDungService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\NguoiDungService.cs",
+              "RelativeToolTip": "BC3\\Services\\NguoiDungService.cs",
+              "ViewState": "AgIAAAMAAAAA/P//////v7MAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:37:58.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NhomService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\NhomService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\NhomService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\NhomService.cs",
+              "RelativeToolTip": "BC3\\Services\\NhomService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:40:41.166Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "TinTucService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\TinTucService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\TinTucService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\TinTucService.cs",
+              "RelativeToolTip": "BC3\\Services\\TinTucService.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:40:44.895Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CuaHangService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\CuaHangService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\CuaHangService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\CuaHangService.cs",
+              "RelativeToolTip": "BC3\\Services\\CuaHangService.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAmwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:26:18.141Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ComboService.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Services\\ComboService.cs",
+              "RelativeDocumentMoniker": "BC3\\Services\\ComboService.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Services\\ComboService.cs",
+              "RelativeToolTip": "BC3\\Services\\ComboService.cs",
+              "ViewState": "AgIAAFYAAAAAAAAAAADwv3wAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T14:15:45.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "StaffController.cs",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Controllers\\StaffController.cs",
+              "RelativeDocumentMoniker": "BC3\\Controllers\\StaffController.cs",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Controllers\\StaffController.cs",
+              "RelativeToolTip": "BC3\\Controllers\\StaffController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-20T13:56:04.798Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UuDai.cshtml",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\UuDai.cshtml",
+              "RelativeDocumentMoniker": "BC3\\Views\\Admin\\UuDai.cshtml",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\UuDai.cshtml",
+              "RelativeToolTip": "BC3\\Views\\Admin\\UuDai.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T08:52:34.921Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TinTuc.cshtml",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\TinTuc.cshtml",
+              "RelativeDocumentMoniker": "BC3\\Views\\Admin\\TinTuc.cshtml",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\TinTuc.cshtml",
+              "RelativeToolTip": "BC3\\Views\\Admin\\TinTuc.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACgAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T08:50:10.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "_Staff.cshtml",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Views\\Shared\\_Staff.cshtml",
+              "RelativeDocumentMoniker": "BC3\\Views\\Shared\\_Staff.cshtml",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Views\\Shared\\_Staff.cshtml",
+              "RelativeToolTip": "BC3\\Views\\Shared\\_Staff.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAACYAAABhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T08:47:44.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "EditCB.cshtml",
+              "DocumentMoniker": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\EditCB.cshtml",
+              "RelativeDocumentMoniker": "BC3\\Views\\Admin\\EditCB.cshtml",
+              "ToolTip": "E:\\No_SQL\\BC3\\BC3\\Views\\Admin\\EditCB.cshtml",
+              "RelativeToolTip": "BC3\\Views\\Admin\\EditCB.cshtml",
+              "ViewState": "AgIAADwAAAAAAAAAAAAiwEwAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-20T08:53:53.167Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

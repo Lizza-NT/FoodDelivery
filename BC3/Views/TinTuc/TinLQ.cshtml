@@ -1,0 +1,37 @@
+﻿@model List<BC3.Classes.TinTuc>
+
+@{
+    Layout = null;
+    string currentId = TempData["TT"]?.ToString();
+}
+
+<div class="row mt-2">
+    @if (Model != null && Model.Any())
+    {
+    <h1 class="text-uppercase text-center">Tin tức khác</h1>
+        foreach (var item in Model)
+        {
+            if (item.MaTT != currentId) // Chỉ hiển thị các tin tức khác
+            {
+    <div class="col-4 mt-3 mx-auto">
+        <div class="card bg-warning bg-opacity-25 text-center h-100 rounded-3">
+            <div class="card-img-top">
+                <img class="img-fluid" style="width:400px; height:300px" src="~/Image/tintuc/@item.Hinh_TT" />
+            </div>
+            <div class="card-body">
+                <div class="card-text">
+                    <h5 class="text-white">@item.TenTT</h5>
+                    <p class="text-white-50">@item.TomTat_TT</p>
+                </div>
+                <a href="@Url.Action("DetailTin", "TinTuc", new { id = item.MaTT })" class="btn btn-outline-warning mt-2">Xem chi tiết</a>
+            </div>
+        </div>
+    </div>
+            }
+        }
+    }
+    else
+    {
+    <p>Không có tin tức liên quan.</p>
+    }
+</div>

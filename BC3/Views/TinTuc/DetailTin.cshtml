@@ -1,0 +1,38 @@
+﻿@model Tuple<BC3.Classes.TinTuc, List<BC3.Classes.TinTuc>>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string ngay = String.Format("{0:dd/MM/yyyy}", Model.Item1.DayShow);
+}
+
+<h1 class="text-uppercase text-center" style="color:firebrick; font-weight:900">@Model.Item1.TenTT</h1>
+<div class="row">
+    <div class="col-6">
+        <span class="bg-warning rounded-3 px-3 text-black"><i class="bi bi-calendar-event"></i> @ngay</span>
+    </div>
+    <div class="col-4"></div>
+    <div class="col-2 float-end">
+        @if (Model.Item1.TrangThai_TT == 1)
+        {
+        <span class="bg-primary rounded-3 text-end px-3">Chưa diễn ra</span>
+        }
+        else
+        {
+        <span class="bg-danger rounded-3 text-end px-3">Đã diễn ra</span>
+        }
+    </div>
+</div>
+
+<p class="px-5" style="font-size:18px">
+    <strong style="font-size:22px">@Model.Item1.TenTT</strong><br />
+    &nbsp;&nbsp;&nbsp;@Model.Item1.TomTat_TT.
+</p>
+<img class="img-fluid w-50 rounded-3 mx-auto d-block" src="~/Image/tintuc/@Model.Item1.Hinh_TT" />
+<br />
+&nbsp;&nbsp;&nbsp;@Model.Item1.NoiDung_TT
+<br />
+
+<div class="align-items-center mt-3">
+    @Html.Partial("TinLQ", Model.Item2)
+</div>

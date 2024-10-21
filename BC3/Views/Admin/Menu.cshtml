@@ -1,0 +1,40 @@
+﻿@model List<BC3.Classes.Combo>
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Danh sách Menu</h2>
+<a class="btn btn-secondary text-end" href="@Url.Action("CreateCB", "Admin")"><i class="bi bi-plus"></i> Thêm</a>
+<table class="table table-dark table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 5%; color: darkorange">ID</th>
+            <th class="text-center" style="width: 15%; color: darkorange">Tên combo</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Giá Bán</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Giá Thực</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Hình Ảnh</th>
+            <th class="text-center" style="width: 30%; color: darkorange">Mô Tả</th>
+            <th class="text-center" style="width: 5%; color: darkorange">Nhóm</th>
+            <th style="width: 15%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center">@item.ComboID</td>
+                <td>@item.TenCombo</td>
+                <td class="text-center">@item.GiaBan</td>
+                <td class="text-center">@item.GiaThuc</td>
+                <td><img src="~/Image/menu/@item.Hinh" alt="@item.TenCombo" style="width:100px;height:100px;" /></td>
+                <td>@item.CT_Combo</td>
+                <td>@item.MaNhom</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditCB", "Admin", new { id = item.ComboID })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteCB", "Admin", new { id = item.ComboID })" onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này không?');">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

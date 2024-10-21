@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FastFoodModelStoreContainer" CdmEntityContainer="FastFoodEntities">
+    <EntitySetMapping Name="COMBO">
+      <EntityTypeMapping TypeName="FastFoodModel.COMBO">
+        <MappingFragment StoreEntitySet="COMBO">
+          <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+          <ScalarProperty Name="ComboID" ColumnName="ComboID" />
+          <ScalarProperty Name="TenCombo" ColumnName="TenCombo" />
+          <ScalarProperty Name="Hinh" ColumnName="Hinh" />
+          <ScalarProperty Name="GiaThuc" ColumnName="GiaThuc" />
+          <ScalarProperty Name="GiaBan" ColumnName="GiaBan" />
+          <ScalarProperty Name="CT_Combo" ColumnName="CT_Combo" />
+          <ScalarProperty Name="TrangThai_CB" ColumnName="TrangThai_CB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUAHANG">
+      <EntityTypeMapping TypeName="FastFoodModel.CUAHANG">
+        <MappingFragment StoreEntitySet="CUAHANG">
+          <ScalarProperty Name="CuaHangID" ColumnName="CuaHangID" />
+          <ScalarProperty Name="MaKV" ColumnName="MaKV" />
+          <ScalarProperty Name="TenCH" ColumnName="TenCH" />
+          <ScalarProperty Name="DiachiCH" ColumnName="DiachiCH" />
+          <ScalarProperty Name="HotLine" ColumnName="HotLine" />
+          <ScalarProperty Name="Opened" ColumnName="Opened" />
+          <ScalarProperty Name="Closed" ColumnName="Closed" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KHUVUC">
+      <EntityTypeMapping TypeName="FastFoodModel.KHUVUC">
+        <MappingFragment StoreEntitySet="KHUVUC">
+          <ScalarProperty Name="MaKV" ColumnName="MaKV" />
+          <ScalarProperty Name="TenKV" ColumnName="TenKV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NHOM">
+      <EntityTypeMapping TypeName="FastFoodModel.NHOM">
+        <MappingFragment StoreEntitySet="NHOM">
+          <ScalarProperty Name="MaNhom" ColumnName="MaNhom" />
+          <ScalarProperty Name="TenNhom" ColumnName="TenNhom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TINTUC">
+      <EntityTypeMapping TypeName="FastFoodModel.TINTUC">
+        <MappingFragment StoreEntitySet="TINTUC">
+          <ScalarProperty Name="TinTucID" ColumnName="TinTucID" />
+          <ScalarProperty Name="MaTT" ColumnName="MaTT" />
+          <ScalarProperty Name="TenTT" ColumnName="TenTT" />
+          <ScalarProperty Name="DayShow" ColumnName="DayShow" />
+          <ScalarProperty Name="Hinh_TT" ColumnName="Hinh_TT" />
+          <ScalarProperty Name="NoiDung_TT" ColumnName="NoiDung_TT" />
+          <ScalarProperty Name="TomTat_TT" ColumnName="TomTat_TT" />
+          <ScalarProperty Name="TrangThai_TT" ColumnName="TrangThai_TT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TK_QL">
+      <EntityTypeMapping TypeName="FastFoodModel.TK_QL">
+        <MappingFragment StoreEntitySet="TK_QL">
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="PassUser" ColumnName="PassUser" />
+          <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UUDAI">
+      <EntityTypeMapping TypeName="FastFoodModel.UUDAI">
+        <MappingFragment StoreEntitySet="UUDAI">
+          <ScalarProperty Name="UuDaiID" ColumnName="UuDaiID" />
+          <ScalarProperty Name="MaUD" ColumnName="MaUD" />
+          <ScalarProperty Name="TenUD" ColumnName="TenUD" />
+          <ScalarProperty Name="DayStart" ColumnName="DayStart" />
+          <ScalarProperty Name="DayEnd" ColumnName="DayEnd" />
+          <ScalarProperty Name="Hinh_UD" ColumnName="Hinh_UD" />
+          <ScalarProperty Name="NoiDung_UD" ColumnName="NoiDung_UD" />
+          <ScalarProperty Name="TomTat_UD" ColumnName="TomTat_UD" />
+          <ScalarProperty Name="TrangThai_UD" ColumnName="TrangThai_UD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

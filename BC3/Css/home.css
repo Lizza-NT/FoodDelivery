@@ -1,0 +1,289 @@
+@charset "utf-8";
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@900&family=Quicksand:wght@500&display=swap');
+/* CSS Document */
+body{
+	font-size: 20px;
+	font-family: 'Quicksand', sans-serif;
+}
+h1{font-size: 100px;}
+h2{font-size: 70px;}
+h3{font-size: 50px;}
+h4{font-size: 30px;}
+h5{font-size: 24px;}
+body h1,h2,h3,h4,h5, strong{
+	text-transform: uppercase;
+	font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.btn{
+	font-weight: bold;
+	letter-spacing: 5px;
+}
+.container-fluid{
+	height: 768px;
+	width: 100%;
+}
+
+/*banner*/
+.banner {
+	background: url("../Image/home/1.png");
+	position: relative;
+	
+}
+.banner-txt {
+	position: absolute;
+	top: 25%;
+	padding: 0 20px;
+	max-width: 650px;
+	margin-bottom: 20px;
+	color: white;
+}
+.banner-txt ul{
+	padding: 2px 20px;
+}
+.banner-txt li a {
+	color: white;
+	padding: 0 15px 0 15px;
+	text-decoration:none;
+}
+
+.banner-txt li a:hover{
+	color: black;
+	background-color: darkorange;
+	border-radius: 10px;
+	font-weight:800;
+	padding: 5px 15px;
+}
+
+/*About us*/
+.about-us {
+	background: url("../Image/home/2.png");
+	position: relative;
+}
+.about-us-txt{
+	position: absolute;
+	max-width: 690px;
+	color: black;
+	padding: 40px 30px;
+	top: 25%;
+	left: 40px;
+}
+.about-us h3{
+	color: black;
+	text-transform: uppercase;
+}
+.about-us h2{
+	color: darkred;
+}
+.about-us img{
+	position: absolute;
+	width: 600px;
+	top: 22%;
+	right: 0px;
+}
+.about-us a{
+	
+}
+
+/*Today Meal*/
+.today-meal {
+	background: url("../Image/home/3.png");
+	position: relative;
+	height: 638px;
+}
+.today-meal-txt{
+	position: absolute;
+	top: 5%;
+}
+.today-meal-txt h2{
+	float: right;
+	padding: 50px 10px 0px;
+	color: gold;
+	text-shadow: 3px 3px 20px black;
+}
+
+.today-meal .carousel-inner {
+  padding: 1em;
+}
+.today-meal .carousel-control-prev,
+.today-meal .carousel-control-next {
+  background-color: gray;
+  width: 6vh;
+  height: 6vh;
+  border-radius: 50%;
+  top: 60%;
+  transform: translateY(-50%);
+}
+
+@media (min-width: 768px) {
+  .carousel-item {
+    margin-right: 0;
+    flex: 0 0 25%;
+    display: block;
+  }
+  .carousel-inner {
+    display: flex;
+  }
+}
+@media (max-width: 768px) {
+  .card .img-wrapper {
+    height: 17em;
+  }
+}
+
+.today-meal .card .img-wrapper {
+    max-width: 100%;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	
+}
+.today-meal .card img {
+    max-height: 100%;
+	box-shadow: 4px 20px 30px 0 rgba(22, 22, 26, 0.18);
+	width: 98%;
+	height: 98%;
+	border-radius: 10px 10px 2px 2px;
+}
+.today-meal .card {
+  	margin: 0 10px;
+ 	border: none;
+	border-radius: 10px;
+}
+
+.today-meal .card-title{
+	display: -webkit-box;
+  	-webkit-line-clamp: 1;
+  	-webkit-box-orient: vertical;
+  	overflow: hidden;
+}
+.today-meal .card span{
+	color: red;
+	font-weight: 700;
+}
+.today-meal .card del{
+	font-size: 17px;
+	color: gray;
+}
+.today-meal .card h3{
+	text-transform: none;
+	font-size: 30px;
+	font-weight: 600;
+}
+
+/*Known*/
+.known {
+	background: url("../Image/home/4.png");
+	text-align: center;
+	color: black;
+	font-weight: 500;
+	height: 550px;
+}
+.known img{
+	width: 250px;
+	margin-top: 120px;
+}
+.known h5{
+	color: darkred;
+	margin-top: 20px;
+}
+
+/*News*/
+.news {
+	background: url("../Image/home/5.png");
+	height: 1200px;
+}
+.news h3,h4{
+	text-align: center;
+	color: darkred;
+}
+.news .card {
+  	display: flex;
+  	flex-direction: column;
+	align-items: center;
+	background-color: #E27C24;
+	border: none;
+}
+
+/*ảnh đặc biệt*/
+.news .card-img{ 
+	align-items: center;
+	height: 870px;
+	border-radius: 10px 10px 0 0;
+}
+.news .best{
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 20px;
+}
+.news .best-txt p{
+	font-size: 16px;
+	margin-top: -10px;
+	color: wheat;
+	padding: 2px;
+}
+
+/*ảnh nội dung 2 bên*/
+.chon img{ 
+	width: 100%;
+	height: 240px;
+	align-items: center;
+	border-radius: 10px 10px 0 0;
+}
+.news .chon {
+	margin: 1px;
+	align-items: center;
+	text-align: center;
+	height: 345px;
+	width: 95%;
+	color: black;
+	border-radius: 20px;
+	background-color: rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: 300ms;
+}
+.title{
+	font-weight: 500;
+	font-size: 18px;
+	color: white;
+}
+.second-txt{
+	font-size: 16px;
+	text-align: left;
+	margin-top: -15px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	padding: 0 2px;
+	color: wheat;
+}
+
+.news .card .chon:hover {
+  	transform: scale(1.1, 1.1); 
+}
+.news .card:hover > .chon:not(:hover) {
+	filter: blur(2px);
+	transform: scale(0.8, 0.8);
+}
+
+/*Map*/
+.map {
+	background: url("../Image/home/Hinh_anh_trang_chu.jpg");
+	position: relative;
+}
+.map-txt{
+	top: 40%;
+	left: 25%;
+	position: absolute;
+	border: dashed medium;
+	background-color: rgba(180, 100, 50, 0.8);
+	padding: 30px;
+	width: 700px;
+}
+.map h3{
+	text-align: center;
+	color: black;
+}
+
+
+

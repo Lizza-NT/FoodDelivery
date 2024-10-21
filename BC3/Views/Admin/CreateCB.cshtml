@@ -1,0 +1,85 @@
+﻿@model BC3.Classes.Combo
+
+@{
+    ViewBag.Title = "CreateCB";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2 style="color:darkorange">Tạo Combo mới</h2>
+
+@using (Html.BeginForm("CreateCB", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Nhập thông tin tại đây <i class="bi bi-chevron-down"></i></h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ComboID)
+
+    <div class="row">
+        <div class="col-4">
+            <div class="form-group mt-2">
+                <label>Nhóm combo:</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.MaNhom,
+                        new SelectList(ViewBag.NhomCombo, "MaNhom", "TenNhom"),
+                        "Chọn Nhóm", // Placeholder cho dropdown
+                        new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaNhom, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <label>Tên combo:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.TenCombo, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.TenCombo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <label>Hình ảnh:</label>
+                <div class="col-md-10">
+                    @Html.TextBoxFor(model => model.Hinh, new { @class = "form-control", @value = "No-Image.png" })
+                    @Html.ValidationMessageFor(model => model.Hinh, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="form-group mt-2">
+                <label>Giá bán:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GiaBan, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GiaBan, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <label>Giá thực:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.GiaThuc, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.GiaThuc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <label>Mô tả combo:</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.CT_Combo, new { @class = "form-control", rows = 5 })
+                    @Html.ValidationMessageFor(model => model.CT_Combo, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <a href="/Admin/Menu" class="btn btn-outline-warning text-decoration-none"><<< Quay lại</a> |
+            <input type="submit" value="Create" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+

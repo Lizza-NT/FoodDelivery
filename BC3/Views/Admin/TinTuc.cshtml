@@ -1,0 +1,54 @@
+﻿@model List<BC3.Classes.TinTuc>
+
+
+@{
+    ViewBag.Title = "TinTuc";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Danh Sách Tin Tức</h2>
+
+<a class="btn btn-secondary text-end" href="@Url.Action("CreateTT", "Admin")"><i class="bi bi-plus"></i> Thêm</a>
+
+<table class="table table-dark table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 10%; color: darkorange">Tên Tin Tức</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Quận</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Thành Phố</th>
+            <th class="text-center" style="width: 8%; color: darkorange">Trạng Thái</th>
+            <th class="text-center" style="width: 7%; color: darkorange">DayShow</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Hình</th>
+            <th class="text-center" style="width: 20%; color: darkorange">Nội Dung</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Tóm Tắt</th>
+            <th style="width: 15%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tinTuc in Model)
+        {
+            <tr>
+                <td>@tinTuc.TenTT</td>
+                <td>@tinTuc.Quan</td>
+                <td>@tinTuc.ThanhPho</td>
+                <td>@if(tinTuc.TrangThai_TT == 1)
+                {
+                    <span>Sắp diễn ra</span>
+                }
+                else
+                {
+                    <span>Đã diễn ra</span>
+                }
+                </td>
+                <td>@tinTuc.DayShow</td>
+                <td><img src="~/Image/tintuc/@tinTuc.Hinh_TT" alt="@tinTuc.Hinh_TT" style="width:100px;height:100px;" /></td>
+                <td>@tinTuc.NoiDung_TT</td>
+                <td>@tinTuc.TomTat_TT</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditTT", "Admin", new { id = tinTuc.MaTT })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteTT", "Admin", new { id = tinTuc.MaTT })" onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này không?');">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

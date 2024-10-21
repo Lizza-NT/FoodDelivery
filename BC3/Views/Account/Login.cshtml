@@ -1,0 +1,41 @@
+﻿@model BC3.Classes.NguoiDung
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-6">
+        <img class="img-fluid d-block mx-auto" src="~/Image/icon/in.png" />
+    </div>
+    <div class="col-6 mt-5">
+        <h2 class="text-center text-uppercase" style="color:darkorange; font-weight:800">ĐĂNG NHẬP</h2>
+        <hr />
+        <h4 class="text-center text-uppercase text-warning">ĐỂ có thể trải nghiệm những dịch vụ tốt nhất bên chúng tôi</h4>
+        <div class="container mt-3">
+            @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+            {
+                <div class="row">
+                    <label for="username" class="form-label">Tên đăng nhập:</label>
+                    @Html.TextBoxFor(m => m.username, new { @class = "form-control", placeholder = "Nhập Tên đăng nhập...", id = "IDUser" })
+                    <div class="text-center text-danger">
+                        @Html.ValidationMessageFor(m => m.username)
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <label for="password" class="form-label">Mật khẩu:</label>
+                    @Html.PasswordFor(m => m.password, new { @class = "form-control", placeholder = "Nhập Mật khẩu...", id = "PassUser" })
+                    <div class="text-center text-danger">
+                        @Html.ValidationMessageFor(m => m.password)
+                    </div>
+                </div>
+                <div class="text-center text-danger mt-3">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                </div>
+                <button type="submit" class="btn btn-outline-warning text-uppercase mx-auto d-flex my-3">Đăng nhập</button>
+            }
+            <p class="text-center">Bạn chưa có tài khoản? <a class="link-warning" href="@Url.Action("Register", "Account")">Đăng ký tại đây!</a></p>
+        </div>
+    </div>
+</div>

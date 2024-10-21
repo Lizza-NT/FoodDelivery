@@ -1,0 +1,97 @@
+﻿@model List<BC3.Classes.CuaHang>
+
+@{
+    ViewBag.Title = "Chi Nhánh";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var currentTime = DateTime.Now.TimeOfDay;
+}
+
+<style>
+    .backup {
+        background-image: url("../Image/back/buu.jpg");
+        width: 100%;
+        height: 20%;
+        opacity: 0.8;
+    }
+    .search-form {
+        float: left;
+        width: 300px; 
+        margin-right: 20px; 
+    }
+    .store-list {
+        clear: both;
+        margin-top: 20px;
+    }
+</style>
+
+<main aria-labelledby="title">
+    <div class="backup d-block mx-auto">
+        <br />
+        <br />
+        <br />
+        <br />
+        <h1 class="text-uppercase text-center text-black text-bg-warning p-2" style="font-weight:900; font-size:60px; opacity:1">Cửa hàng</h1>
+        <br />
+        <br />
+        <br />
+        <br />
+    </div>
+
+    <div class="search-form">
+        <form action="/Home/ChiNhanh">
+            <div class="input-group my-3">
+                <input type="text" class="form-control" placeholder="Tìm kiếm..." name="search" id="search" value="@ViewBag.Search">
+                <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+        </form>
+    </div>    
+    
+    <div class="store-list">
+        @if (ViewBag.HasStores == true)
+        {
+        <h3 class="mt-4" style="color: darkorange">
+            @if (ViewBag.SearchMode == true)
+                {
+            @:CÁC CỬA HÀNG THEO KHU VỰC
+                }
+                else
+                {
+            @:CÁC CỬA HÀNG TRÊN TOÀN QUỐC
+                }
+        </h3>
+
+        foreach (var store in Model)
+            {
+        <div class="row">
+            <div class="col-9">
+                <h5 class="text-uppercase mt-2 text-warning">@store.TenCH</h5>
+                <p class="text-white">
+                    <i class="bi bi-shop"></i> Địa chỉ: @store.DiaChi, @store.Quan, @store.ThanhPho <br />
+                    <i class="bi bi-door-open"></i> Giờ mở cửa: @store.GioMo giờ - @store.GioDong giờ <br />
+                    <i class="bi bi-telephone"></i> @store.HotLine
+                </p>
+            </div>
+            <div class="col-3">
+                @{
+                    var gioMo = TimeSpan.FromHours(store.GioMo);
+                    var gioDong = TimeSpan.FromHours(store.GioDong);
+                }
+                @if (currentTime >= gioMo && currentTime <= gioDong)
+                {
+                <a href="#" class="btn btn-outline-warning">Đặt đến lấy</a>
+                }
+                else
+                {
+                <a href="#" class="btn btn-outline-secondary disabled">Đặt đến lấy</a>
+                }
+            </div>
+        </div>
+            
+            }
+        }
+        else
+        {
+        <h3 class="mt-4" style="color: darkorange">Không tìm thấy cửa hàng</h3>
+        }
+    </div>
+</main>

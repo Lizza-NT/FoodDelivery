@@ -1,0 +1,50 @@
+﻿@model BC3.Classes.NguoiDung
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row pt-5">
+    <div class="col-7">
+        <h2 class="text-center text-uppercase" style="color:darkorange; font-weight:800">Đăng ký mới tại đây</h2>
+        <hr />
+        <h4 class="text-center text-uppercase text-warning">Tạo tài khoản và trở thành thành viên của chúng tôi nhé!</h4>
+
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        { 
+            <div class="row mt-2">
+                <span>Tên đăng nhập<i class="text-danger">*</i></span>
+                @Html.TextBoxFor(m => m.username, new { placeholder = "", @class = "form-control" })
+                <span class="text-danger fst-italic">@Html.ValidationMessageFor(m => m.username)</span>
+            </div>
+            <div class="row mt-2">
+                <span>Họ tên<i class="text-danger">*</i></span>
+                @Html.TextBoxFor(m => m.hoTen, new { placeholder = "", @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.hoTen)</span>
+            </div>
+            <div class="row mt-2">
+                <span>Số điện thoại<i class="text-danger">*</i></span>
+                @Html.TextBoxFor(m => m.sdt, new { placeholder = "", @class = "form-control" }) <!-- Changed email to sdt -->
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.sdt)</span>
+            </div>
+            <div class="row mt-2">
+                <span>Mật khẩu<i class="text-danger">*</i></span>
+                @Html.PasswordFor(m => m.password, new { placeholder = "", @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.password)</span>
+            </div>
+            <div class="row mt-2">
+                <span>Xác nhận lại mật khẩu<i class="text-danger">*</i></span>
+                @Html.PasswordFor(m => m.ConfirmPassword, new { placeholder = "", @class = "form-control" })
+                <span class="text-danger">@Html.ValidationMessageFor(m => m.ConfirmPassword)</span>
+            </div>
+
+            
+           
+            <button type="submit" class="btn btn-outline-warning text-uppercase mx-auto d-flex my-3">Đăng ký</button>
+        }
+    </div>
+    <div class="col-5">
+        <img class="img-fluid d-block mx-auto" src="~/Image/icon/up.png" />
+    </div>
+</div>

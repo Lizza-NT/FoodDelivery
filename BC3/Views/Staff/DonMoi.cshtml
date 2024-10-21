@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Đơn hàng mới";
+    Layout = "~/Views/Shared/_Staff.cshtml";
+}
+
+@model List<BC3.ViewModel.DonHangViewModel>
+
+<h2>Đơn hàng mới</h2>
+
+<table class="table table-dark table-hover">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 5%; color: darkorange">ID</th>
+            <th class="text-center" style="width: 20%; color: darkorange">Combo</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Khách</th>
+            <th class="text-center" style="width: 15%; color: darkorange">SĐT</th>
+            <th class="text-center" style="width: 15%; color: darkorange">Địa chỉ</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Ngày đặt</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Tổng tiền</th>
+            <th class="text-center" style="width: 5%; color: darkorange"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var don in Model)
+        {
+            <tr>
+                <td class="text-center">@don.MaDonHang</td>
+                <td>
+                    @string.Join(", ", don.TenComboGop)
+                </td>
+                <td class="text-center">@don.TenNguoiDat</td>
+                <td class="text-center">@don.SoDienThoai</td>
+                <td>@don.DiaChi</td>
+                <td class="text-center">@don.NgayGiao.ToString("dd/MM/yyyy")</td>
+                <td class="text-center">@don.ThanhTien.ToString("C")</td>
+
+                <td class="text-center">
+                    <form action="/Staff/DonMoi" method="post">
+                        <input type="hidden" name="id" value="@don.MaDonHang" />
+                        <button type="submit" class="btn btn-primary">Nhận</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

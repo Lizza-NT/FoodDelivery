@@ -1,0 +1,45 @@
+﻿@model List<BC3.Classes.DonHang>
+
+@{
+    ViewBag.Title = "DonHang";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Danh Sách Đơn Hàng</h2>
+
+<a class="btn btn-secondary text-end" href="@Url.Action("CreateDH", "Admin")"><i class="bi bi-plus"></i> Thêm</a>
+
+<table class="table table-dark table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 10%; color: darkorange">Mã Đơn Hàng</th>
+            <th class="text-center" style="width: 20%; color: darkorange">Đường</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Quận</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Thành Phố</th>
+            <th class="text-center" style="width: 15%; color: darkorange">Ngày Giao</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Trạng Thái</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Thành Tiền</th>
+            <th style="width: 15%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var donHang in Model)
+        {
+            <tr>
+                <td>@donHang.MaDH</td>
+                <td>@donHang.Duong</td>
+                <td>@donHang.Quan</td>
+                <td>@donHang.ThanhPho</td>
+                <td>@donHang.NgayGiao</td>
+                <td>@donHang.TrangThai</td>
+                <td>@donHang.ThanhTien</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditDH", "Admin", new { id = donHang.MaDH })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteDH", "Admin", new { id = donHang.MaDH })" onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này không?');">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

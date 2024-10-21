@@ -1,0 +1,33 @@
+﻿@model BC3.Services.GioHangService
+@{
+    ViewBag.Title = "ViewCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Giỏ hàng của bạn</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tên món</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.TenCB</td>
+                <td>@item.GiaBan.ToString("C")</td>
+                <td>@item.Soluong</td>
+                <td>@(item.GiaBan * item.Soluong).ToString("C")</td>
+                <td>
+                    <a href="@Url.Action("RemoveFromCart", new { macb = item.MaCB })">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<p>Tổng cộng: @Model.Total.ToString("C")</p>

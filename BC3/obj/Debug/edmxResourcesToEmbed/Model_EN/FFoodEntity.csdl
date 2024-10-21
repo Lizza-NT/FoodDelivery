@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FastFoodModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="COMBO">
+    <Key>
+      <PropertyRef Name="ComboID" />
+      <PropertyRef Name="TenCombo" />
+    </Key>
+    <Property Name="MaNhom" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ComboID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TenCombo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Hinh" Type="String" MaxLength="30" FixedLength="true" Unicode="false" />
+    <Property Name="GiaThuc" Type="Decimal" Precision="15" Scale="3" />
+    <Property Name="GiaBan" Type="Decimal" Precision="15" Scale="3" />
+    <Property Name="CT_Combo" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai_CB" Type="Boolean" />
+    <NavigationProperty Name="NHOM" Relationship="Self.MANHOM_FK" FromRole="COMBO" ToRole="NHOM" />
+  </EntityType>
+  <EntityType Name="CUAHANG">
+    <Key>
+      <PropertyRef Name="TenCH" />
+    </Key>
+    <Property Name="CuaHangID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaKV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenCH" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DiachiCH" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="HotLine" Type="String" MaxLength="16" FixedLength="true" Unicode="false" />
+    <Property Name="Opened" Type="Int32" />
+    <Property Name="Closed" Type="Int32" />
+    <NavigationProperty Name="KHUVUC" Relationship="Self.CUAHANG_FK" FromRole="CUAHANG" ToRole="KHUVUC" />
+  </EntityType>
+  <EntityType Name="KHUVUC">
+    <Key>
+      <PropertyRef Name="MaKV" />
+    </Key>
+    <Property Name="MaKV" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenKV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CUAHANG" Relationship="Self.CUAHANG_FK" FromRole="KHUVUC" ToRole="CUAHANG" />
+  </EntityType>
+  <EntityType Name="NHOM">
+    <Key>
+      <PropertyRef Name="MaNhom" />
+    </Key>
+    <Property Name="MaNhom" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenNhom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="COMBO" Relationship="Self.MANHOM_FK" FromRole="NHOM" ToRole="COMBO" />
+  </EntityType>
+  <EntityType Name="TINTUC">
+    <Key>
+      <PropertyRef Name="MaTT" />
+    </Key>
+    <Property Name="TinTucID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaTT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenTT" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DayShow" Type="DateTime" Precision="3" />
+    <Property Name="Hinh_TT" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="NoiDung_TT" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TomTat_TT" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai_TT" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="TK_QL">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PassUser" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SDT" Type="String" MaxLength="12" FixedLength="true" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UUDAI">
+    <Key>
+      <PropertyRef Name="MaUD" />
+    </Key>
+    <Property Name="UuDaiID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaUD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenUD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DayStart" Type="DateTime" Precision="3" />
+    <Property Name="DayEnd" Type="DateTime" Precision="3" />
+    <Property Name="Hinh_UD" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="NoiDung_UD" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="TomTat_UD" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="TrangThai_UD" Type="Boolean" />
+  </EntityType>
+  <Association Name="MANHOM_FK">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="1" />
+    <End Role="COMBO" Type="Self.COMBO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="MaNhom" />
+      </Principal>
+      <Dependent Role="COMBO">
+        <PropertyRef Name="MaNhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CUAHANG_FK">
+    <End Role="KHUVUC" Type="Self.KHUVUC" Multiplicity="1" />
+    <End Role="CUAHANG" Type="Self.CUAHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHUVUC">
+        <PropertyRef Name="MaKV" />
+      </Principal>
+      <Dependent Role="CUAHANG">
+        <PropertyRef Name="MaKV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FastFoodEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="COMBO" EntityType="Self.COMBO" />
+    <EntitySet Name="CUAHANG" EntityType="Self.CUAHANG" />
+    <EntitySet Name="KHUVUC" EntityType="Self.KHUVUC" />
+    <EntitySet Name="NHOM" EntityType="Self.NHOM" />
+    <EntitySet Name="TINTUC" EntityType="Self.TINTUC" />
+    <EntitySet Name="TK_QL" EntityType="Self.TK_QL" />
+    <EntitySet Name="UUDAI" EntityType="Self.UUDAI" />
+    <AssociationSet Name="MANHOM_FK" Association="Self.MANHOM_FK">
+      <End Role="NHOM" EntitySet="NHOM" />
+      <End Role="COMBO" EntitySet="COMBO" />
+    </AssociationSet>
+    <AssociationSet Name="CUAHANG_FK" Association="Self.CUAHANG_FK">
+      <End Role="KHUVUC" EntitySet="KHUVUC" />
+      <End Role="CUAHANG" EntitySet="CUAHANG" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

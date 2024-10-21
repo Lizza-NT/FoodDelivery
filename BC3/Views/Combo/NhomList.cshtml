@@ -1,0 +1,17 @@
+﻿@model List<BC3.Classes.Nhom>
+
+
+<link href="~/Css/nhom.css" rel="stylesheet">
+
+<table class="table table-dark mt-3">
+    @foreach (var nhom in Model)
+    {
+        <tr>
+            <td>
+                <div class="nhom-item">
+                    <a class="nhom-link" href="javascript:void(0);" data-id="@nhom.MaNhom">@nhom.TenNhom</a>
+                </div>
+            </td>
+        </tr>
+    }
+</table>

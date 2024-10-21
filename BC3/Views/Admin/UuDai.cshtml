@@ -1,0 +1,52 @@
+﻿@model List<BC3.Classes.UuDai>
+
+@{
+    ViewBag.Title = "UuDai";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Danh Sách Ưu Đãi</h2>
+
+<a class="btn btn-secondary text-end" href="@Url.Action("CreateUD", "Admin")"><i class="bi bi-plus"></i> Thêm</a>
+
+<table class="table table-dark table-hover mt-3">
+    <thead>
+        <tr>
+            <th class="text-center" style="width: 10%; color: darkorange">Tên Ưu Đãi</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Ngày Bắt Đầu</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Ngày Kết Thúc</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Trạng Thái</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Hình</th>
+            <th class="text-center" style="width: 25%; color: darkorange">Nội Dung</th>
+            <th class="text-center" style="width: 10%; color: darkorange">Tóm Tắt</th>
+            <th style="width: 15%;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var uuDai in Model)
+        {
+            <tr>
+                <td>@uuDai.TenUD</td>
+                <td>@uuDai.DayStart</td>
+                <td>@uuDai.DayEnd</td>
+                <td>
+                    @if (uuDai.TrangThai_UD == 1)
+                    {
+                        <span>Sắp diễn ra</span>
+                    }
+                    else
+                    {
+                        <span>Đã diễn ra</span>
+                    }                                
+                </td>
+                <td><img src="~/Image/uudai/@uuDai.Hinh_UD" alt="@uuDai.Hinh_UD" style="width:100px;height:100px;" /></td>
+                <td>@uuDai.NoiDung_UD</td>
+                <td>@uuDai.TomTat_UD</td>
+                <td>
+                    <a class="btn btn-primary" href="@Url.Action("EditUD", "Admin", new { id = uuDai.MaUD })">Sửa</a>
+                    <a class="btn btn-danger" href="@Url.Action("DeleteUD", "Admin", new { id = uuDai.MaUD })" onclick="return confirm('Bạn có chắc chắn muốn xoá món ăn này không?');">Xoá</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

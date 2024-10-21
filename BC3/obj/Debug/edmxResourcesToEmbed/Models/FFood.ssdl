@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FastFoodModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="COMBO">
+    <Key>
+      <PropertyRef Name="ComboID" />
+      <PropertyRef Name="TenCombo" />
+    </Key>
+    <Property Name="MaNhom" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="ComboID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TenCombo" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Hinh" Type="char" MaxLength="30" />
+    <Property Name="GiaThuc" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="GiaBan" Type="decimal" Precision="15" Scale="3" />
+    <Property Name="CT_Combo" Type="nvarchar" MaxLength="500" />
+    <Property Name="TrangThai_CB" Type="bit" />
+  </EntityType>
+  <EntityType Name="CUAHANG">
+    <Key>
+      <PropertyRef Name="TenCH" />
+    </Key>
+    <Property Name="CuaHangID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaKV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TenCH" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="DiachiCH" Type="nvarchar" MaxLength="300" />
+    <Property Name="HotLine" Type="char" MaxLength="16" />
+    <Property Name="Opened" Type="int" />
+    <Property Name="Closed" Type="int" />
+  </EntityType>
+  <EntityType Name="KHUVUC">
+    <Key>
+      <PropertyRef Name="MaKV" />
+    </Key>
+    <Property Name="MaKV" Type="char" MaxLength="10" Nullable="false" />
+    <Property Name="TenKV" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NHOM">
+    <Key>
+      <PropertyRef Name="MaNhom" />
+    </Key>
+    <Property Name="MaNhom" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TenNhom" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TINTUC">
+    <Key>
+      <PropertyRef Name="MaTT" />
+    </Key>
+    <Property Name="TinTucID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTT" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TenTT" Type="nvarchar" MaxLength="100" />
+    <Property Name="DayShow" Type="datetime" />
+    <Property Name="Hinh_TT" Type="nchar" MaxLength="30" />
+    <Property Name="NoiDung_TT" Type="nvarchar(max)" />
+    <Property Name="TomTat_TT" Type="nvarchar" MaxLength="1000" />
+    <Property Name="TrangThai_TT" Type="bit" />
+  </EntityType>
+  <EntityType Name="TK_QL">
+    <Key>
+      <PropertyRef Name="IDUser" />
+    </Key>
+    <Property Name="IDUser" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="PassUser" Type="varchar" MaxLength="50" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="Email" Type="char" MaxLength="50" />
+    <Property Name="SDT" Type="char" MaxLength="12" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="UUDAI">
+    <Key>
+      <PropertyRef Name="MaUD" />
+    </Key>
+    <Property Name="UuDaiID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaUD" Type="char" MaxLength="5" Nullable="false" />
+    <Property Name="TenUD" Type="nvarchar" MaxLength="50" />
+    <Property Name="DayStart" Type="datetime" />
+    <Property Name="DayEnd" Type="datetime" />
+    <Property Name="Hinh_UD" Type="nchar" MaxLength="30" />
+    <Property Name="NoiDung_UD" Type="nvarchar(max)" />
+    <Property Name="TomTat_UD" Type="nvarchar" MaxLength="1000" />
+    <Property Name="TrangThai_UD" Type="bit" />
+  </EntityType>
+  <Association Name="CUAHANG_FK">
+    <End Role="KHUVUC" Type="Self.KHUVUC" Multiplicity="1" />
+    <End Role="CUAHANG" Type="Self.CUAHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KHUVUC">
+        <PropertyRef Name="MaKV" />
+      </Principal>
+      <Dependent Role="CUAHANG">
+        <PropertyRef Name="MaKV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MANHOM_FK">
+    <End Role="NHOM" Type="Self.NHOM" Multiplicity="1" />
+    <End Role="COMBO" Type="Self.COMBO" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NHOM">
+        <PropertyRef Name="MaNhom" />
+      </Principal>
+      <Dependent Role="COMBO">
+        <PropertyRef Name="MaNhom" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FastFoodModelStoreContainer">
+    <EntitySet Name="COMBO" EntityType="Self.COMBO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUAHANG" EntityType="Self.CUAHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KHUVUC" EntityType="Self.KHUVUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NHOM" EntityType="Self.NHOM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TINTUC" EntityType="Self.TINTUC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TK_QL" EntityType="Self.TK_QL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UUDAI" EntityType="Self.UUDAI" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="CUAHANG_FK" Association="Self.CUAHANG_FK">
+      <End Role="KHUVUC" EntitySet="KHUVUC" />
+      <End Role="CUAHANG" EntitySet="CUAHANG" />
+    </AssociationSet>
+    <AssociationSet Name="MANHOM_FK" Association="Self.MANHOM_FK">
+      <End Role="NHOM" EntitySet="NHOM" />
+      <End Role="COMBO" EntitySet="COMBO" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

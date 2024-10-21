@@ -1,0 +1,175 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        .btn-group a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .btn-logIn, .btn-signUp, .btn-logOut {
+            border-radius: 15px;
+            font-size: 16px;
+            padding: 5px 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-logIn {
+            width: 130px;
+            background-color: goldenrod;
+            z-index: 5;
+            margin-left: 5px;
+            margin-right: -39px;
+            text-align: center;
+        }
+
+        .btn-signUp {
+            width: 135px;
+            color: #ffffff;
+            border: solid darkgoldenrod;
+            z-index: 4;
+            padding-left: 50px;
+        }
+
+        .btn-logOut {
+            width: 155px;
+            color: #ffffff;
+            border: solid darkorange;
+        }
+
+        .btn-logIn:hover {
+            background-color: darkgoldenrod;
+        }
+
+        .btn-logOut:hover {
+            background-color: darkorange;
+        }
+
+        .btn-signUp:hover {
+            background-color: darkgoldenrod;
+        }
+    </style>
+</head>
+
+<body class="bg-black text-light">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-black p-2 sticky-top">
+        <div class="container">
+            <a href="/Home" class="text-decoration-none">
+                <h1 class="text-uppercase border-bottom border-2 border-warning">
+                    <span class="text-warning" style="font-weight:800; margin-right:-18px;">Texas</span>
+                    <span class="text-white" style="font-weight:100; font-size:30px">Chicken</span>
+                </h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between px-5">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="px-2">@Html.ActionLink("Menu", "Index", "Combo", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="px-2">@Html.ActionLink("Tin tức", "TinTucPartial", "TinTuc", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="px-2">@Html.ActionLink("Ưu đãi", "UuDaiPartial", "UuDai", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="px-2">@Html.ActionLink("Cửa hàng", "ChiNhanh", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="px-2">@Html.ActionLink("Về Texas", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li class="px-2 nav-item">
+                        @*<li class="px-2">@Html.ActionLink("Giỏ hàng", "GioHangPar", "GioHang", new { area = "" }, new { @class = "nav-link" })</li>*@
+                        <div id="cartPartial"></div>
+
+                    </li>
+                </ul>
+            </div>
+
+            <script>
+                $(document).ready(function() {
+                    $.ajax({
+                        url: '@Url.Action("GioHangPartial", "GioHang")',
+                        type: 'GET',
+                        success: function(result) {
+                            $('#cartPartial').html(result);
+                        },
+                        error: function() {
+                            console.log("Failed to load cart.");
+                        }
+                    });
+                });     
+            </script>
+
+            @if (Session["hoTen"] != null)
+            {
+                <div style="float: right;">
+                    Hello @Session["hoTen"]!
+                    <a href="@Url.Action("Logout", "Account")" class="btn-logOut">Đăng Xuất</a>
+                </div>
+            }
+            else
+            {
+                <div class="btn-group">
+                    <a href="/Account/Login" class="btn-logIn">Đăng Nhập</a>
+                    <a href="/Account/Register" class="btn-signUp">Đăng Ký</a>
+                </div>
+            }
+        </div>
+    </nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <div class="text-end sticky-bottom">
+        <a class="text-decoration-none text-warning" style="font-size:50px;" href="#"><i class="bi bi-arrow-up-circle-fill"></i></a>
+    </div>
+
+    <footer class="px-5 p-2 bg-black">
+        <hr />
+        <div class="row">
+            <div class="col-5">
+                <h3 style="color: #FFA000"><strong>TEXAS CHICKEN VIETNAM</strong></h3>
+                <i class="bi bi-geo-alt-fill" style="color: #FFA000;"></i> 202 Lý Chính Thắng, Phường 09, Quận 3, TP. Hồ Chí Minh<br />
+                <i class="bi bi-telephone-fill" style="color: #FFA000;"></i> (028) 393 11 039<br />
+                <i class="bi bi-envelope-at-fill" style="color: #FFA000;"></i> info.texaschicken@fb.mesa.vn<br />
+                <i class="bi bi-globe" style="color: #FFA000;"></i> www.texaschickenvn.com
+                <br />
+                <button class="btn btn-outline-warning mt-2" data-bs-toggle="tooltip" title="Chưa cập nhật!"><i class="bi bi-pin-map-fill"></i> Xem bản đồ</button>
+            </div>
+            <div class="col-2">
+                <h3 style="color: #FFA000" class="text-uppercase"><strong>Thông Tin</strong></h3>
+                <a href="/Home/About" class="text-white text-decoration-none">Về Texas Chicken</a><br />
+                <a href="/Menu/CBPartial" class="text-white text-decoration-none">Thực đơn</a><br />
+                <a href="/UuDai/UuDaiPartial" class="text-white text-decoration-none">Ưu đãi</a><br />
+                <a href="/TinTuc/TinTucPartial" class="text-white text-decoration-none">Tin tức</a><br />
+                <a href="/Home/ChiNhanh" class="text-white text-decoration-none">Hệ thống nhà hàng</a>
+            </div>
+            <div class="col-3">
+                <h4 style="color: #FFA000" class="text-uppercase"><strong>Kết Nối Với <br /> Texas Chicken</strong></h4>
+                <a href="/Home/ChiNhanh" class="text-white text-decoration-none">Liên hệ</a>
+            </div>
+            <div class="col-2">
+                <h2 class="mt-5">
+                    <a class="text-decoration-none" href="https://www.facebook.com/TexaschickenVN">
+                        <i class="bi bi-facebook" data-bs-toggle="tooltip" title="Facebook" style="color: #FFA000;"></i>
+                    </a>&nbsp;
+                    <a class="text-decoration-none" href="https://www.youtube.com/channel/UCKB59nu0JGCO_krR-PepTuA">
+                        <i class="bi bi-youtube" data-bs-toggle="tooltip" title="Youtube" style="color: #FFA000;"></i>
+                    </a>&nbsp;
+                    <a class="text-decoration-none" href="https://www.instagram.com/texaschickenvn/">
+                        <i class="bi bi-instagram" data-bs-toggle="tooltip" title="Instagram" style="color: #FFA000;"></i>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </footer>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

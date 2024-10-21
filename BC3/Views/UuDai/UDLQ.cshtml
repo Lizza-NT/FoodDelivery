@@ -1,0 +1,41 @@
+﻿@model List<BC3.Classes.UuDai>
+
+@{
+    ViewBag.Title = "UDLQ";
+    Layout = null;
+    string id = TempData["UD"]?.ToString();
+    int a = 0;
+}
+
+<div class="row mt-2">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            if (a == 0)
+            {
+                <h3 class="text-uppercase text-end" style="font-weight:800; color: darkorange;">Ưu đãi khác</h3>
+                a = 1;
+            }
+
+            if (item.MaUD != id) // Kiểm tra để không hiển thị ưu đãi hiện tại
+            {
+                <div class="row mt-3">
+                    <div class="col-5">
+                        <a href="@Url.Action("DetailUD", "UuDai", new { id = item.MaUD })">
+                            <img src="~/Image/uudai/@item.Hinh_UD" class="img-fluid" />
+                        </a>
+                    </div>
+                    <div class="col-7 ">
+                        <a href="@Url.Action("DetailUD", "UuDai", new { id = item.MaUD })" class="text-decoration-none text-white">
+                            <h5 class="text-uppercase">@item.TenUD</h5>
+                        </a>
+                        <p class="text-secondary">@item.TomTat_UD</p>
+                        <a href="@Url.Action("DetailUD", "UuDai", new { id = item.MaUD })" class="btn btn-outline-warning">Xem chi tiết</a>
+                    </div>
+                </div>
+                <hr />
+            }
+        }
+    }
+</div>

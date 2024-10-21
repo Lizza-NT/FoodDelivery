@@ -1,0 +1,203 @@
+﻿@model BC3.ViewModel.FoodMenuViewModel
+@{
+    ViewBag.Title = "Menu";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            @Html.Partial("NhomList", Model.NhomList) <!-- Gọi partial view hiển thị nhóm -->
+        </div>
+        <div class="col-md-8">
+            <div id="comboList" class="row">
+                <!-- Ban đầu sẽ hiển thị tất cả các combo -->
+                @foreach (var item in Model.ComboList)
+                {
+                    <div class="col-4 mt-3">
+                        <div class="card bg-secondary bg-opacity-25 text-center h-100">
+                            <img class="card-img-top img-fluid" src="~/Image/menu/@item.Hinh" alt="@item.TenCombo" />
+                            <div class="card-body">
+                                <h5 class="card-title">@item.TenCombo</h5>
+                                <p class="card-text">Giá: <strong class="text-danger">@item.GiaBan VNĐ</strong></p>
+                                <button type="button" class="btn btn-outline-light them-vao-gio-hang"
+                                        data-id="@item.ComboID"
+                                        data-name="@item.TenCombo"
+                                        data-price="@item.GiaBan">
+                                    <i class="bi bi-bag-plus-fill"></i>
+                                </button>
+                                <button class="btn btn-warning xem-chi-tiet" data-id="@item.ComboID">Xem Chi Tiết</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal cho Chi Tiết Combo -->
+<div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="detailModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-black">
+            <div class="modal-header">
+                <h5 class="modal-title" id="detailModalLabel">Thông Tin Chi Tiết</h5>
+                
+            </div>
+            <div class="modal-body" id="comboDetailContent">
+                <!-- Nội dung chi tiết sẽ được thêm vào đây -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning them-vao-gio-hang" data-dismiss="modal">Thêm vào giỏ hàng</button>
+                <button type="button" class="btn btn-outline-secondary dong-chi-tiet" data-dismiss="modal">Đóng</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            loadAllCombos(); // Tải tất cả các món ăn khi trang được tải lần đầu
+
+            // Nhấp vào nhóm món ăn
+            $(document).on('click', '.nhom-link', function (event) {
+                event.preventDefault();
+                var groupId = $(this).data('id');
+                loadCombosByGroupId(groupId); // Tải các combo theo mã nhóm
+            });
+
+            // Nhấp vào nút xem chi tiết
+            $(document).on('click', '.xem-chi-tiet', function () {
+                var comboId = $(this).data('id');
+                loadComboById(comboId); // Hiển thị chi tiết combo
+            });
+
+            // Sự kiện bấm nút đóng modal
+            $(document).on('click', '.dong-chi-tiet', function () {
+                $('#detailModal').modal('hide');
+            });
+
+            // Nhấp vào nút "Thêm vào giỏ hàng"
+            $(document).on('click', '.them-vao-gio-hang', function () {
+                var comboId = $(this).data('id');
+                var tencb = $(this).data('name');
+                var giaban = $(this).data('price');
+
+                $.ajax({
+                    url: '@Url.Action("AddToCart", "Combo")',
+                    method: 'POST',
+                    data: { macb: comboId, tencb: tencb, gia: giaban, soluong: 1 },
+                    success: function () {
+                        alert('Đã thêm vào giỏ hàng.');
+                    }
+                });
+            });
+
+            function loadAllCombos() {
+                $.ajax({
+                    url: '@Url.Action("GetAllCombo", "Combo")',
+                    method: 'GET',
+                    success: function (data) {
+                        updateComboList(data);
+                    },
+                    error: function () {
+                        $('#comboList').html('<p class="text-danger">Không tìm thấy combo nào.</p>');
+                    }
+                });
+            }
+
+            function loadCombosByGroupId(groupId) {
+                $.ajax({
+                    url: '@Url.Action("GetCombosByGroupId", "Combo")',
+                    data: { id: groupId },
+                    method: 'GET',
+                    success: function (data) {
+                        updateComboList(data);
+                    },
+                    error: function () {
+                        $('#comboList').html('<p class="text-danger">Không tìm thấy combo nào.</p>');
+                    }
+                });
+            }
+
+            function loadComboById(comboId) {
+                $.ajax({
+                    url: '@Url.Action("GetComboByID", "Combo")',
+                    data: { id: comboId },
+                    method: 'GET',
+                    success: function (data) {
+                        displayComboDetails(data);
+                        $('#detailModal').modal('show');
+                    },
+                    error: function () {
+                        $('#comboDetailContent').text("Không tìm thấy thông tin cho món ăn này.");
+                        $('#detailModal').modal('show');
+                    }
+                });
+            }
+
+            function updateComboList(data) {
+                $('#comboList').html(''); // Xóa nội dung trước đó
+                var rowDiv = $('<div class="row"></div>');
+
+                $.each(data, function (index, combo) {
+                    var comboItem =
+                        '<div class="col-4 mt-3">' +
+                            '<div class="card bg-secondary bg-opacity-25 text-white text-center h-100">' +
+                                '<img class="card-img-top img-fluid" src="/Image/menu/' + combo.Hinh + '" alt="' + combo.TenCombo + '" />' +
+                                '<div class="card-body">' +
+                                    '<h5 class="card-title">' + combo.TenCombo + '</h5>' +
+                                    '<p class="card-text">Giá: <strong class="text-danger">' + combo.GiaBan.toFixed(3) + ' VNĐ</strong></p>' +
+                                    '<button type="button" class="btn btn-outline-warning mx-1 them-vao-gio-hang" ' +
+                                            'data-name="' + combo.TenCombo + '" ' +
+                                            'data-id="' + combo.ComboID + '" ' +
+                                            'data-price="' + combo.GiaBan + '"><i class="bi bi-bag-plus-fill"></i></button>' +
+                                    '<button class="btn btn-secondary xem-chi-tiet" data-id="' + combo.ComboID + '">Xem Chi Tiết</button>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+
+                    rowDiv.append(comboItem);
+
+                    if ((index + 1) % 3 === 0) {
+                        $('#comboList').append(rowDiv);
+                        rowDiv = $('<div class="row"></div>');
+                    }
+                });
+
+                if (rowDiv.children().length > 0) {
+                    $('#comboList').append(rowDiv); // Thêm dòng còn lại
+                }
+            }
+
+            function displayComboDetails(data) {
+                var giaBanFormatted = data.GiaBan.toFixed(3);
+                var giaThucFormatted = data.GiaThuc.toFixed(3);
+
+                var content = '<h4>' + data.TenCombo + '</h4>';
+                content += '<p>Giá Bán: <span style="font-size:20px; font-weight:500; color:darkorange">' + giaBanFormatted + ' VNĐ</span>';
+                if (data.GiaThuc > 0) {
+                    content += ' <del>' + giaThucFormatted + ' VNĐ</del>';
+                }
+                content += '</p>';
+                content += '<div class="row">' +
+                    '<div class="col-5">' +
+                        '<img src="/Image/menu/' + data.Hinh + '" style="width:180px;height:auto;" alt="' + data.TenCombo + '" />' +
+                    '</div>' +
+                    '<div class="col-7">' +
+                        '<h5>Món ăn gồm có:</h5>' + data.CT_Combo.replace(/-/g, '<br />') +
+                    '</div>' +
+                    '</div>';
+                content += '<div class="row mt-4">' +
+                    '<div class="col-5"><h5>Có thể mua trên:</h5></div>' +
+                    '<div class="col-2"><a href="https://be.com.vn/..."><img class="img-fluid w-30 rounded-5" src="/Image/order/bee.png" alt="Be-Food" /></a></div>' +
+                    '<div class="col-2"><a href="https://grab.com.vn/..."><img class="img-fluid w-30 rounded-5" src="/Image/order/Grab.jpg" alt="Grab-Food" /></a></div>' +
+                    '<div class="col-2"><a href="https://www.shopee.com/..."><img class="img-fluid w-30 rounded-5" src="/Image/order/shoppee.png" alt="Shopee-Food" /></a></div>' +
+                    '</div>';
+
+                $('#comboDetailContent').html(content); // Cập nhật nội dung modal
+            }
+        });
+    </script>
+}

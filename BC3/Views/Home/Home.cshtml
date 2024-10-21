@@ -1,0 +1,235 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Home</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link href="~/Css/home.css" rel="stylesheet">
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="home.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid banner">
+        <div class="banner-txt">
+            <h1 class="text-center">Texas Chicken</h1>
+            <p class="text-uppercase"><span>Bold Texas Flavor</span><span class="float-end">Since 1952</span></p>
+            <ul class="list-group list-group-horizontal list-unstyled text-center mx-4">
+                <li><a href="/Combo/Index">Menu</a></li>  |
+                <li><a href="/TinTuc/TinTucPartial">Tin tức</a></li>  |
+                <li><a href="/UuDai/UuDaiPartial">Ưu đãi</a></li>  |
+                <li><a href="/Home/ChiNhanh">Chi nhánh</a></li>  |
+                <li><a href="/Home/About">Giới thiệu</a></li>
+            </ul>
+        </div>
+            
+
+    </div>
+
+    @*-----About us-----*@
+    <div class="container-fluid about-us">
+        <div class="about-us-txt">
+            <h3>đôi nét về</h3>
+            <h2>Texas Chicken</h2>
+            <p>Đến thị trường Việt Nam vào cuối năm 2012, đến nay Texas Chicken đã nhanh chóng phát triển với 30 nhà hàng tại Tp.HCM, Bình Dương, Nha Trang, Hà Nội, Hải Phòng và Biên Hòa, thu hút đông đảo thực khách đến trải nghiệm các sản phẩm “Gà rán đậm vị Texas”.</p>
+            <a href="/Home/About" class="btn btn-warning text-uppercase d-block mx-auto px-5">Tìm hiểu thêm</a>
+        </div>
+        <img src="~/Image/logo/logoW.png" class="img-fluid">
+    </div>
+
+    <div class="container-fluid today-meal">
+        <div class="today-meal-txt">
+            <h2>hôm nay ăn gì đây ?</h2>
+
+            <div id="carouselExampleControls" class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/CB2N-D.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo Vui Vẻ D</h5>
+                                <p class="card-text">Giá <span>199.000đ</span> <del>247.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/CB2N-C.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo Vui Vẻ C</h5>
+                                <p class="card-text">Giá <span>189.000đ</span> <del>218.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/CB2N-B.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo Vui Vẻ B</h5>
+                                <p class="card-text">Giá <span>159.000đ</span> <del>194.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/GSBT-Combo-A.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo A-Gà sốt bơ tỏi & Thảo mộc</h5>
+                                <p class="card-text">Giá <span>119.000đ</span> <del>155.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/GSBT-Combo-B.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo B-Gà sốt bơ tỏi & Thảo mộc</h5>
+                                <p class="card-text">Giá <span>199.000đ</span> <del>257.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="card">
+                            <div class="img-wrapper">
+                                <img src="~/Image/menu/CBFF-Combo-C.png" class="d-block" alt="">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Combo Nhóm C</h5>
+                                <p class="card-text">Giá <span>499.000đ</span> <del>600.000đ</del></p>
+                                <a href="#" class="btn btn-warning d-block mx-auto">XEM CHI TIẾT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                <script src="~/Scripts/home.js" type="text/jscript"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid known px-5">
+        <div class="row">
+            <div class="col-sm-4">
+                <img class="rounded-circle img-fluid mx-auto d-block" src="~/Image/home/gà.png">
+                <h5>gà giòn <br>chuẩn tươi 100%</h5>
+                <p>Thưởng thức gà giòn tan,<br> sử dụng gà tươi 100% từ nông trại</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="rounded-circle img-fluid mx-auto d-block" src="~/Image/home/nước.png">
+                <h5>nước ngọt <br>uống không giới hạn</h5>
+                <p>Uống nước ngọt thoải mái với<br> concept refill miễn phí</p>
+            </div>
+            <div class="col-sm-4">
+                <img class="rounded-circle img-fluid mx-auto d-block" src="~/Image/home/pvu.png">
+                <h5>dịch vụ chuyên nghiệp &amp;<br> không gian hiện đại</h5>
+                <p>Trải nghiệm phong cách phục vụ chuyên nghiệp &amp; không gian cực cool</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="News" class="container-fluid news">
+        <h2 class="text-center text-warning">sự kiện &amp; ưu đãi</h2>
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="text-center">Sự Kiện</h4>
+                <div class="card">
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/tintuc/khaitruongsora.jpg" />
+                        <p class="title">Khai trương tại Sora Garden</p>
+                        <p class="second-txt">Tưng bừng khai trương Texas Chicken Sora Garden-Tầng 02, Lô 205, TTTM Sora</p>
+                        <a href="/TinTuc/DetailTin/TT02" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/tintuc/doi-moi.jpg">
+                        <p class="title">Đổi mới diện mạo Texas Chicken</p>
+                        <p class="second-txt">Tưng bừng khai trương, mừng diện mạo mới Texas Chicken.</p>
+                        <a href="/TinTuc/DetailTin/TT03" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/tintuc/vo-thi-sau.jpg">
+                        <p class="title">Khai trương tại Phạm Văn Thuận</p>
+                        <p class="second-txt">Tưng bừng khai trương Texas Chicken tại Phạm Văn Thuận - Biên Hoà.</p>
+                        <a href="/TinTuc/DetailTin/TT04" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h3 class="text-center">Đặc biệt</h3>
+                <div class="card best">
+                    <img class="card-img card-img-top img-fluid" src="~/Image/tintuc/ct-crunchy-night.jpg">
+                    <div class="best-txt">
+                        <h4 class="text-center text-white">chương trình CRUNCHY NIGHT</h4>
+                        <p>CRUNCHY NIGHT - Đại nhạc hội hoành tráng, mở màn cho chuỗi chương trình mừng kỷ niệm 10 năm Texas Chicken có mặt tại Việt Nam chính thức ra mắt TEXFAN</p>
+                        <a href="/TinTuc/DetailTin/TT01" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <h4 class="text-center">Ưu đãi</h4>
+                <div class="card">
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/uudai/bo-ba-day-du-99k.jpg" alt="Xem chi tiết">
+                        <p class="title">Bộ ba đủ đầy, trọn vị ngất ngây</p>
+                        <p class="second-txt">Texas Chicken gửi tặng các fans chiếc ưu đãi cực hot...</p>
+                        <a href="/UuDai/DetailUD/UD99" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/uudai/Friday.jpg">
+                        <p class="title">Texas Friday</p>
+                        <p class="second-txt">Deal trong tay bắt ngay kẻo lỡ. Ưu đãi 60k khi đặt hàng qua ShopeeFood </p>
+                        <a href="/UuDai/DetailUD/UDT6" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                    <div class="chon">
+                        <img class="img-fluid float-start" src="~/Image/uudai/summer.jpg">
+                        <p class="title">Hè vui rộn rãng</p>
+                        <p class="second-txt">Summer Combo với ngập gà giòn tươi ngon kèm giá "siêu iu"</p>
+                        <a href="/UuDai/DetailUD/UDSM" class="btn btn-dark d-block mx-auto">Xem chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid map">
+        <div class="map-txt">
+            <h3>Chúc bạn có một trải nghiệm tốt khi đến với <br /> Kexas Chicken</h3>
+            <a href="#" class="text-black float-end">Back to top<i class="bi bi-caret-up-fill"></i></a>
+        </div>
+    </div>
+</body>
+</html>

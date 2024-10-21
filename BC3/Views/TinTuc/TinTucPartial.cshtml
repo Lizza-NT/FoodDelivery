@@ -1,0 +1,69 @@
+﻿@model List<BC3.Classes.TinTuc>
+
+@{
+    ViewBag.Title = "TinTucPartial";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .backup {
+        background-image: url("../Image/back/buu.jpg");
+        width: 100%;
+        height: 20%;
+        opacity: 0.8;
+    }
+</style>
+
+<div class="backup d-block mx-auto">
+    <br />
+    <br />
+    <br />
+    <br />
+    <h1 class="text-uppercase text-center text-black text-bg-warning p-2" style="font-weight:900; font-size:60px">Tin tức</h1>
+    <br />
+    <br />
+    <br />
+    <br />
+</div>
+
+<div class="row mt-4">
+    @if (Model != null && Model.Any())
+    {
+        // Lấy tin đầu tiên
+        var firstItem = Model.First();
+    <div class="col-5">
+        <a href="@Url.Action("DetailTin", "TinTuc", new { id = firstItem.MaTT })">
+            <img src="~/Image/tintuc/@firstItem.Hinh_TT" class="img-fluid w-100 h-75 rounded-3" />
+        </a>
+        <a href="@Url.Action("DetailTin", "TinTuc", new { id = firstItem.MaTT })" class="text-decoration-none text-warning">
+            <h3 class="text-uppercase text-center">@firstItem.TenTT</h3>
+        </a>
+        <p class="text-secondary">@firstItem.TomTat_TT</p>
+        <a href="@Url.Action("DetailTin", "TinTuc", new { id = firstItem.MaTT })" class="btn btn-outline-warning">Xem chi tiết</a>
+    </div>
+
+    <div class="col-7">
+        @foreach (var item in Model.Skip(1)) // Bỏ qua tin đầu tiên
+            {
+        <div class="row mt-5">
+            <div class="col-4">
+                <a href="@Url.Action("DetailTin", "TinTuc", new { id = item.MaTT })">
+                    <img src="~/Image/tintuc/@item.Hinh_TT" class="img-fluid w-100 rounded-3" />
+                </a>
+            </div>
+            <div class="col-8">
+                <a href="@Url.Action("DetailTin", "TinTuc", new { id = item.MaTT })" class="text-decoration-none text-white">
+                    <h5 class="text-uppercase">@item.TenTT</h5>
+                </a>
+                <p class="text-secondary">@item.TomTat_TT</p>
+            </div>
+        </div>
+            }
+    </div>
+    }
+</div>
+
+
+
+
+
